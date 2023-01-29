@@ -12,10 +12,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(title:Center(child: Text("Latihan Row dan Column"),) ),
-          body: Column(children: <Widget>[
-            Text("Text1"),
-            Text("Text2"),
-            Text("Text3"),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text("Text1"),
+              Text("Text2"),
+              Text("Text3"),
+              Row(children: [
+                Text("Text4"),
+                Text("Text5"),
+                Text("Text6"),
+              ],)
           ]),
       )
     );  
