@@ -10,23 +10,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-          appBar: AppBar(title:Center(child: Text("Latihan Row dan Column"),) ),
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text("Text1"),
-              Text("Text2"),
-              Text("Text3"),
-              Row(children: [
-                Text("Text4"),
-                Text("Text5"),
-                Text("Text6"),
-              ],)
-          ]),
-      )
-    );  
+        home: Scaffold(
+      appBar: AppBar(
+          title: Center(
+        child: Text("Latihan Container"),
+      )),
+      body: Container(
+        color: Colors.redAccent,
+        margin: EdgeInsets.only(bottom: 50),
+        padding: EdgeInsets.fromLTRB(10,20,30,40),
+        child: Container(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),gradient: LinearGradient(colors: <Color>[
+          Colors.amber,
+          Colors.blue
+        ],begin: Alignment.topLeft, end: Alignment.bottomRight))),
+      ),
+    ));
   }
 }
 
