@@ -12,14 +12,21 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  void tekanTombol(){}
+  int number = 0;
+  void tekanTombol(){
+    setState(() {
+      number+=1;      
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(appBar: AppBar(title:Text("Stateful Widget"),),
-      body: Center(child: Column(
+      body: Center(
+        child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Text("12"),
+          Text(number.toString(), style: TextStyle(fontSize: 10 + number.toDouble())),
           ElevatedButton(onPressed: tekanTombol, child: Text("Tambah Bilangan"))
         ],
       ),)),
