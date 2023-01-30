@@ -12,24 +12,29 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int number = 0;
-  void tekanTombol(){
-    setState(() {
-      number+=1;      
-    });
-  }
+
+  String message = "ini adalah Text";
+
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(appBar: AppBar(title:Text("Stateful Widget"),),
-      body: Center(
-        child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(number.toString(), style: TextStyle(fontSize: 10 + number.toDouble())),
-          ElevatedButton(onPressed: tekanTombol, child: Text("Tambah Bilangan"))
-        ],
-      ),)),
+      home: Scaffold(
+        appBar: AppBar(title: Center(child: Text("Anonymous Method"))),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(message),
+              // Method hanya dipanggil 1x saja
+              ElevatedButton(onPressed: ()=>{
+                //setState merupakan anonymous method, sebelum dia dijalankan dia membutuhkan method lain terlebih dahulu untuk dijalankan ( sebelum dia updatae tampilan)
+                setState(() {
+                message = "Tombol sudah ditekan";
+                })
+              },child: Text("Tekan Saya"))
+            ],) ),
+      ),
     );
   }
 }
