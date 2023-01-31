@@ -16,7 +16,7 @@ List<Widget> widgets = [];
 
 _MyAppState()
 {
-  for(int i = 0 ; i < 16 ; i ++)
+  for(int i = 0 ; i < 20 ; i ++)
     widgets.add(Text("Data ke - " +  i.toString(), style: TextStyle(fontSize: 35),));
 }
 
@@ -28,7 +28,7 @@ _MyAppState()
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Center(child: Text("List & ListView"))),
-        body: Column(children: widgets),
+        body: ListView(children: widgets),
       ),
     );
   }
