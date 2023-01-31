@@ -48,7 +48,38 @@ class _MyAppState extends State<MyApp> {
                           ],
                         ))
                   ],
-                )
+                ),
+                ListView(
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
+                      ],
+                    )
+                  ],
+                ),
+                Align(alignment: Alignment.bottomCenter ,child:ElevatedButton(child: Text("Ini Button"), style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo), onPressed: (){}, ))
                 //background
                 //listview dengan text
               ],
