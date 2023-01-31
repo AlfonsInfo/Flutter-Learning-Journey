@@ -20,10 +20,24 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(title: Center(child: Text("Image Widget"))),
+      appBar: AppBar(
+          leading: Icon(Icons.adb, color: Colors.white),
+          title: Text("AppBar Example"),
+          actions: [
+            IconButton(onPressed: (){}, icon: Icon(Icons.settings)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.exit_to_app)),
+          ],
+          flexibleSpace: Container(decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [Color(0xff0096ff),Color(0xff6610f2)],begin: FractionalOffset.topLeft, end: FractionalOffset.bottomRight),
+          // image: DecorationImage(image: AssetImage("assets/pattern.jpg"), fit: BoxFit.none, repeat: ImageRepeat.repeat) //gunakan pattern semi transparan
+          ),
+          ),          
+          ),
       body: Center(
         child: Row(children: [
-          Spacer(flex: 2,),
+          Spacer(
+            flex: 2,
+          ),
           Container(width: 50, height: 50, color: Colors.blueAccent),
           Spacer(),
           Container(width: 50, height: 50, color: Colors.blueAccent),
@@ -32,8 +46,7 @@ class _MyAppState extends State<MyApp> {
           Spacer(),
         ]),
       ),
-        )
-    );
+    ));
   }
 }
 //STL -> Shortcut stateless widget.
