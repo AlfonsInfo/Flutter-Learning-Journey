@@ -13,9 +13,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Random random = Random();
-  int counter = 0;
 
+  TextEditingController controller = TextEditingController(text: "nilai awal");
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,11 +39,14 @@ class _MyAppState extends State<MyApp> {
       ),
       body: Container(
         margin: EdgeInsets.all(10),
-        child: ListView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            buildCard(Icons.account_box, "Account Box"),
-            buildCard(Icons.adb, "Android"),
-            buildCard(Icons.access_alarm, "Arm"),
+            TextField(controller : controller,onChanged: (value){ setState(() {/*value penanda perubahan */ });} ,obscureText:  false /* password*/ , maxLength: 10,),
+            Text(controller.text)
+            // buildCard(Icons.account_box, "Account Box"),
+            // buildCard(Icons.adb, "Android"),
+            // buildCard(Icons.access_alarm, "Arm"),
           ],
         ),
       ),
