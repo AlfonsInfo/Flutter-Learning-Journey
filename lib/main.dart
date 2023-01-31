@@ -20,21 +20,37 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            appBar: AppBar(title: Center(child: Text("List & ListView"))),
-            body: Center(
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {});
-                },
-                child: AnimatedContainer(
-                  duration: Duration(seconds: 1),
-                  color: Color.fromARGB(255, random.nextInt(256),
-                      random.nextInt(256), random.nextInt(256)),
-                  width: 50.0 + random.nextInt(101),
-                  height: 50.0 + random.nextInt(101),
-                ),
-              ),
-            )));
+            appBar: AppBar(title: Center(child: Text("Flexible Layout"))),
+            body: Column(
+              children: <Widget>[
+                Flexible(
+                  flex: 1,
+                  child: Container(
+                    child: Row(
+                      children: <Widget>[
+                        Flexible(flex: 1, child: Container(color: Colors.red, margin: EdgeInsets.all(5),)),
+                        Flexible(flex: 1, child: Container(color: Colors.green,margin: EdgeInsets.all(5))),
+                        Flexible(flex: 1, child: Container(color: Colors.amber, margin: EdgeInsets.all(5))),
+                      ],
+                    ),
+                  )),
+                Flexible(
+                  flex: 2,
+                  child: Container(
+                    color: Colors.blue,
+                    margin: EdgeInsets.all(5)
+                  )),
+                Flexible(
+                    flex: 1,
+                    child: Container(
+                      color: Colors.yellow,
+                      margin: EdgeInsets.all(5)
+                    )),
+              ],
+            ),
+
+        )
+    );
   }
 }
 //STL -> Shortcut stateless widget.
