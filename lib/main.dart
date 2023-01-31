@@ -22,19 +22,18 @@ class _MyAppState extends State<MyApp> {
         home: Scaffold(
       appBar: AppBar(title: Center(child: Text("Image Widget"))),
       body: Center(
-          child: Container(
-        color: Colors.black,
-        width: 200,
-        height: 200,
-        padding: EdgeInsets.all(3),
-        child: Image(
-            image: AssetImage(
-                "assets/logo.png"),
-                // "https://img-highend.okezone.com/okz/900/pictureArticle/images_7x4W68RJ_59k0HO.jpg"),
-                fit:BoxFit.contain, repeat: ImageRepeat.repeatX,
-                ), //Network Image sabi juga
-      )),
-    ));
+        child: Row(children: [
+          Spacer(flex: 2,),
+          Container(width: 50, height: 50, color: Colors.blueAccent),
+          Spacer(),
+          Container(width: 50, height: 50, color: Colors.blueAccent),
+          Spacer(),
+          Container(width: 50, height: 50, color: Colors.blueAccent),
+          Spacer(),
+        ]),
+      ),
+        )
+    );
   }
 }
 //STL -> Shortcut stateless widget.
