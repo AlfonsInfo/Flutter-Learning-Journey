@@ -12,6 +12,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+List<Widget> widgets = [];
+
+_MyAppState()
+{
+  for(int i = 0 ; i < 16 ; i ++)
+    widgets.add(Text("Data ke - " +  i.toString(), style: TextStyle(fontSize: 35),));
+}
 
   String message = "ini adalah Text";
 
@@ -20,8 +27,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Center(child: Text("TextStyle"))),
-        body: Center(child: Text("ini adalah Text", style: TextStyle(fontFamily: "Good", fontSize: 50 ,fontWeight:FontWeight.bold )),),
+        appBar: AppBar(title: Center(child: Text("List & ListView"))),
+        body: Column(children: widgets),
       ),
     );
   }
