@@ -20,70 +20,21 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-            appBar: AppBar(title: Center(child: Text("Flexible Layout"))),
-            body: Stack(
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Flexible(
-                        flex: 1,
-                        child: Row(
-                          children: <Widget>[
-                            Flexible(
-                                flex: 1, child: Container(color: Colors.white)),
-                            Flexible(
-                                flex: 1,
-                                child: Container(color: Colors.black12))
-                          ],
-                        )),
-                    Flexible(
-                        flex: 1,
-                        child: Row(
-                          children: <Widget>[
-                            Flexible(
-                                flex: 1, child: Container(color: Colors.black12)),
-                            Flexible(
-                                flex: 1,
-                                child: Container(color: Colors.white))
-                          ],
-                        ))
-                  ],
-                ),
-                ListView(
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                        Container(child: Text("Ini adalah text yang dilapisan tengah dari stack",style: TextStyle(fontSize: 30)),margin: EdgeInsets.all(10)),
-                      ],
-                    )
-                  ],
-                ),
-                Align(alignment: Alignment(0,0.79) ,child:ElevatedButton(child: Text("Ini Button"), style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo), onPressed: (){}, ))
-                //background
-                //listview dengan text
-              ],
-            )));
+      appBar: AppBar(title: Center(child: Text("Image Widget"))),
+      body: Center(
+          child: Container(
+        color: Colors.black,
+        width: 200,
+        height: 200,
+        padding: EdgeInsets.all(3),
+        child: Image(
+            image: AssetImage(
+                "assets/logo.png"),
+                // "https://img-highend.okezone.com/okz/900/pictureArticle/images_7x4W68RJ_59k0HO.jpg"),
+                fit:BoxFit.contain, repeat: ImageRepeat.repeatX,
+                ), //Network Image sabi juga
+      )),
+    ));
   }
 }
 //STL -> Shortcut stateless widget.
