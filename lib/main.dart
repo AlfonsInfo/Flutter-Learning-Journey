@@ -12,23 +12,40 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-List<Widget> widgets = [];
+  List<Widget> widgets = [];
+  int counter = 0;
 
-_MyAppState()
-{
-  for(int i = 0 ; i < 20 ; i ++)
-    widgets.add(Text("Data ke - " +  i.toString(), style: TextStyle(fontSize: 35),));
-}
-
-  String message = "ini adalah Text";
 
   
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Center(child: Text("List & ListView"))),
-        body: ListView(children: widgets),
+        appBar: AppBar(title: Center(child: Text("List & ListView"))), 
+        body: ListView(children: <Widget>[
+          Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround, // sisa space dibagi rata
+          children : <Widget> [
+          ElevatedButton(child: Text("Tambah Data"), onPressed: ()
+          {
+            setState(() {
+              widgets.add(Text("Data ke-" + counter.toString()));
+              counter++;
+            });
+          }),
+          ElevatedButton(child: Text("Hapus Data"),onPressed: (){
+            setState(() {
+            widgets.removeLast();
+            counter--;
+            });
+          },)
+          ] 
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: widgets,)
+          ]
+        )
       ),
     );
   }
