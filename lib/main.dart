@@ -21,36 +21,38 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(title: Center(child: Text("Flexible Layout"))),
-            body: Column(
+            body: Stack(
               children: <Widget>[
-                Flexible(
-                  flex: 1,
-                  child: Container(
-                    child: Row(
-                      children: <Widget>[
-                        Flexible(flex: 1, child: Container(color: Colors.red, margin: EdgeInsets.all(5),)),
-                        Flexible(flex: 1, child: Container(color: Colors.green,margin: EdgeInsets.all(5))),
-                        Flexible(flex: 1, child: Container(color: Colors.amber, margin: EdgeInsets.all(5))),
-                      ],
-                    ),
-                  )),
-                Flexible(
-                  flex: 2,
-                  child: Container(
-                    color: Colors.blue,
-                    margin: EdgeInsets.all(5)
-                  )),
-                Flexible(
-                    flex: 1,
-                    child: Container(
-                      color: Colors.yellow,
-                      margin: EdgeInsets.all(5)
-                    )),
+                Column(
+                  children: <Widget>[
+                    Flexible(
+                        flex: 1,
+                        child: Row(
+                          children: <Widget>[
+                            Flexible(
+                                flex: 1, child: Container(color: Colors.white)),
+                            Flexible(
+                                flex: 1,
+                                child: Container(color: Colors.black12))
+                          ],
+                        )),
+                    Flexible(
+                        flex: 1,
+                        child: Row(
+                          children: <Widget>[
+                            Flexible(
+                                flex: 1, child: Container(color: Colors.black12)),
+                            Flexible(
+                                flex: 1,
+                                child: Container(color: Colors.white))
+                          ],
+                        ))
+                  ],
+                )
+                //background
+                //listview dengan text
               ],
-            ),
-
-        )
-    );
+            )));
   }
 }
 //STL -> Shortcut stateless widget.
