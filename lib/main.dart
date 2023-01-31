@@ -79,7 +79,7 @@ class _MyAppState extends State<MyApp> {
                     )
                   ],
                 ),
-                Align(alignment: Alignment.bottomCenter ,child:ElevatedButton(child: Text("Ini Button"), style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo), onPressed: (){}, ))
+                Align(alignment: Alignment(0,0.79) ,child:ElevatedButton(child: Text("Ini Button"), style: ElevatedButton.styleFrom(backgroundColor: Colors.indigo), onPressed: (){}, ))
                 //background
                 //listview dengan text
               ],
