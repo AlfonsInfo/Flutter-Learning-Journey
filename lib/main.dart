@@ -14,12 +14,17 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 
+  Color colorRed = Colors.red;
+  Color colorAmber  = Colors.amber;
+  bool isAccepted = false;
+  Color ?targetColor;
+
   TextEditingController controller = TextEditingController(text: "nilai awal");
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.white,
       appBar: AppBar(
         leading: Icon(Icons.adb, color: Colors.white),
         title: Text("AppBar Example"),
@@ -37,19 +42,35 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-      body: Container(
-        margin: EdgeInsets.all(10),
-        child: Column(
+      body: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            TextField(controller : controller,onChanged: (value){ setState(() {/*value penanda perubahan */ });} ,obscureText:  false /* password*/ , maxLength: 10,),
-            Text(controller.text)
-            // buildCard(Icons.account_box, "Account Box"),
-            // buildCard(Icons.adb, "Android"),
-            // buildCard(Icons.access_alarm, "Arm"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Draggable<Color>(
+                  data: colorRed,
+                  child:  SizedBox(width: 50, height: 50,child : Material(color: colorRed, shape: StadiumBorder(),elevation: 5,)),
+                  childWhenDragging:SizedBox(width: 50, height: 50,child : Material(color: Colors.grey.withOpacity(0.7), shape: StadiumBorder(),elevation: 5,)),
+                  feedback: SizedBox(width: 50, height: 50,child : Material(color: colorRed.withOpacity(0.5), shape: StadiumBorder(),elevation: 5,)),), //Stadium border utnuk membuat ujung kiri dan kanan melengkung
+                Draggable<Color>(
+                  data: colorAmber,
+                  child:  SizedBox(width: 50, height: 50,child : Material(color: colorAmber, shape: StadiumBorder(),elevation: 5,)),
+                  childWhenDragging:SizedBox(width: 50, height: 50,child : Material(color: Colors.grey.withOpacity(0.7), shape: StadiumBorder(),elevation: 5,)),
+                  feedback: SizedBox(width: 50, height: 50,child : Material(color: colorAmber.withOpacity(0.5), shape: StadiumBorder(),elevation: 5,)),) //Stadium border utnuk membuat ujung kiri dan kanan melengkung
+              ],
+            ),
+            DragTarget<Color>(
+              onWillAccept: (value) =>true,
+              onAccept: (value){isAccepted = true; targetColor = value;},
+              builder: (context, candidateData, rejectedData){
+                return (isAccepted) ? 
+                   SizedBox(width: 100, height: 100,child : Material(color: targetColor, shape: StadiumBorder(),elevation: 5,)) : //Stadium border utnuk membuat ujung kiri dan kanan melengkung
+                  SizedBox(width: 100, height:100,child : Material(color: Colors.black26, shape: StadiumBorder(),elevation: 5,)) ;
+              }
+            )
           ],
-        ),
-      ),
+      )
     ));
   }
 
