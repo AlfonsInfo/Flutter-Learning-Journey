@@ -30,14 +30,37 @@ class MediaQueryPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Latihan Media Query")),
-      body: Column(children: [
-         Container(width: MediaQuery.of(context).size.width/3 ,height:MediaQuery.of(context).size.width/2, 
-        color: Colors.red,),
-         Container(width: MediaQuery.of(context).size.width/3 ,height:MediaQuery.of(context).size.width/2, 
-        color: Colors.blue,),
-        //Bisa membuat layout sesuai layar device (respnsoive)
-      ],
+      body: Column(
+        children:  [
+          (MediaQuery.of(context).orientation == Orientation.portrait)?
+          Row(
+            children:generateContainer(context),
+          ) : 
+          Column(
+            children:generateContainer(context),
+          )  
+        ],
       ),
     );
+  }
+
+  List<Widget> generateContainer(BuildContext context) {
+    return <Widget>[
+            Container(
+              width: 100, //MediaQuery.of(context).size.width / 3,
+              height: 100,//MediaQuery.of(context).size.width / 2,
+              color: Colors.red,
+            ),
+            Container(
+              width: 100,//MediaQuery.of(context).size.width / 3,
+              height: 100,//MediaQuery.of(context).size.width / 2,
+              color: Colors.blue,
+            ),
+            Container(
+              width: 100,//MediaQuery.of(context).size.width / 3,
+              height: 100,//MediaQuery.of(context).size.width / 2,
+              color: Colors.amber,
+            ),
+          ];
   }
 }
