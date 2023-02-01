@@ -17,8 +17,27 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      home: MediaQueryPage(),
     );
   }
 }
 //STL -> Shortcut stateless widget.
+
+class MediaQueryPage extends StatelessWidget {
+  const MediaQueryPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Latihan Media Query")),
+      body: Column(children: [
+         Container(width: MediaQuery.of(context).size.width/3 ,height:MediaQuery.of(context).size.width/2, 
+        color: Colors.red,),
+         Container(width: MediaQuery.of(context).size.width/3 ,height:MediaQuery.of(context).size.width/2, 
+        color: Colors.blue,),
+        //Bisa membuat layout sesuai layar device (respnsoive)
+      ],
+      ),
+    );
+  }
+}
