@@ -17,12 +17,64 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MediaQueryPage(),
+      home: InkWellTutor(), 
+      // home: MediaQueryPage(),
     );
   }
 }
 //STL -> Shortcut stateless widget.
 
+// Part 23
+
+// Part 22 
+class InkWellTutor extends StatelessWidget {
+  const InkWellTutor({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Latihan Membuat Button"),),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            ElevatedButton(onPressed: (){}, child: Text("Elevated Button"),style: ButtonStyle(shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)))),),
+            customButton(),
+          ]),
+      ),
+    );
+  }
+
+  Material customButton() {
+    return Material(
+            borderRadius: BorderRadius.circular(20),
+            elevation: 2,
+            child: Container(
+              width: 150,
+              height: 40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                gradient: LinearGradient(colors: [Colors.purple, Colors.pink], begin:Alignment.topCenter, end: Alignment.bottomCenter)
+              ),
+              child: Material( // kelih
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.transparent,
+                child: InkWell(
+                  splashColor: Colors.deepPurpleAccent,
+                  onTap: (){},
+                  borderRadius: BorderRadius.circular(20),
+                  child: Center(child: Text("My Button", style:  TextStyle(color: Colors.white, fontWeight: FontWeight.w600 ),)),
+                ),
+                  
+              ),
+            ),
+          );
+  }
+}
+// Part 22
+
+
+//Part 21 Media Query
 class MediaQueryPage extends StatelessWidget {
   const MediaQueryPage({super.key});
 
