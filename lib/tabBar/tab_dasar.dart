@@ -4,13 +4,14 @@ import 'package:flutter_app_1/login_page.dart';
 void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     TabBar myTabBar= TabBar(
-      indicator: BoxDecoration(color: Colors.red,border: Border(bottom:BorderSide(color: Colors.purple),),),
+      indicator: BoxDecoration(color: Colors.red,border: Border(top: BorderSide(color: Colors.purple),),),
       tabs: <Widget>[
         Tab(icon: Icon(Icons.computer), text: "Computer",),
         Tab(icon: Icon(Icons.comment),text: "comment",),
