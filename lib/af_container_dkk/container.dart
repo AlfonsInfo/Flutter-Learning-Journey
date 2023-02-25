@@ -26,32 +26,8 @@ class WidgetContainer extends StatelessWidget {
       body: Center(
         child: ListView(
           children: [
-            UnconstrainedBox(
-              alignment: Alignment.center,
-              child: Container(
-                width: 100,
-                height: 100,
-                margin: EdgeInsets.all(50),
-                decoration: BoxDecoration(
-                  image: DecorationImage(image: NetworkImage('https://picsum.photos/300/300')),
-                  border: Border.all(color: Colors.black),
-                  // borderRadius: BorderRadius.circular(5),//! conflit borderradius dan shape
-                  shape: BoxShape.circle),
-              ),
-            ),
-            UnconstrainedBox(
-              alignment: Alignment.center,
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  image: DecorationImage(image: NetworkImage('https://picsum.photos/300/300')),
-                  border: Border.all(color: Colors.black),
-                  borderRadius: BorderRadius.circular(5)),
-              ),
-            ),
-            // UnconstrainedBox(child: Container1(context)),
-            // UnconstrainedBox(child: Container1(context)),
+            UnconstrainedBox(child: Container1(context)),
+            UnconstrainedBox(child: Container1(context)),
           ],
         ),
       ),
