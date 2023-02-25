@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
                 end: Alignment.bottomCenter
                 ).createShader(Rect.fromLTRB(0, 0, rectangle.width, rectangle.height));
               },
-              blendMode: BlendMode.dst,
+              blendMode: BlendMode.dstIn,
               child: Image(
                 width: 300,
                       image: AssetImage("assets/sunset.jpg"),

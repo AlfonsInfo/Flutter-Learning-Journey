@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_1/login_page.dart';
+// import 'package:flutter_app_1/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      // home: LoginPage(),
       // home: opacityCardTutor(),
       // home: InkWellTutor(),
       // home: MediaQueryPage(),

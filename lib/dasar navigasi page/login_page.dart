@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_1/main_page.dart';
+import 'package:flutter_app_1/dasar navigasi page/main_page.dart';
 
 void main() {
   runApp(const LoginPage());
