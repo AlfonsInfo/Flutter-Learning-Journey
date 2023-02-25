@@ -62,15 +62,6 @@ class MainApp extends StatelessWidget {
             createBlock(Colors.blueAccent),
           ],
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('1'),
-            Text('1'),
-            Text('1'),
-            Text('1'),
-          ],
-        )
       ],
     )));
   }
