@@ -12,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Map> listData = [];
-
+  //* CREATE
   create() {
     final controllerTitle = TextEditingController();
     final controllerDescription = TextEditingController();
@@ -21,42 +21,54 @@ class _HomePageState extends State<HomePage> {
       builder: (context) {
         return SimpleDialog(
           title: const Text('Create'),
-          titlePadding: const EdgeInsets.fromLTRB(16,16,16,4),
+          titlePadding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
           contentPadding: const EdgeInsets.all(16),
           children: [
             DInput(controller: controllerTitle, hint: 'Title'),
-            const SizedBox(height: 16,),
-            DInput(controller: controllerDescription, hint: 'Description',),
-            const SizedBox(height: 16,),
-            ElevatedButton(onPressed: (){
-                Map item = {
-                  'title': controllerTitle.text,
-                  'description': controllerDescription.text,
-                };
+            const SizedBox(
+              height: 16,
+            ),
+            DInput(
+              controller: controllerDescription,
+              hint: 'Description',
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Map item = {
+                    'id':UniqueKey().toString(),
+                    'title': controllerTitle.text,
+                    'description': controllerDescription.text,
+                  };
 
-                //add Data | Eksekusi ke API
-                listData.add(item);
-                //Update UI
-                setState((){});
-                //Logging
-                DMethod.printTitle('Create', listData.toString());
-                Navigator.pop(context);
-                DInfo.snackBarSuccess(context,"Success Create New Data");
-            }, child: const Text('Create New Data'))
+                  //add Data | Eksekusi ke API
+                  listData.add(item);
+                  //Update UI
+                  setState(() {});
+                  //Logging
+                  DMethod.printTitle('Create', listData.toString());
+                  Navigator.pop(context);
+                  DInfo.snackBarSuccess(context, "Success Create New Data");
+                },
+                child: const Text('Create New Data'))
           ],
         );
       },
     );
   }
 
+  //* READ
   read() {
     //logging
     DMethod.printTitle('read - begore get data', listData.toString());
     //get data from database/api/collection
     List<Map> initialList = [
       {
-        'title' : 'Container',
-        'description' :'Neumorphism is a something' 
+        'id': '001',
+        'title': 'Container',
+        'description': 'Neumorphism is a something'
       },
     ];
 
@@ -64,17 +76,82 @@ class _HomePageState extends State<HomePage> {
     // listData.addAll(initialList);
     listData = initialList;
     DMethod.printTitle('read - after get data', listData.toString());
-    setState(() {
-    });
-
+    setState(() {});
   }
-    @override
-    void initState(){
-      read();
-      super.initState();
-    }
-  update() {}
-  delete() {}
+
+  @override
+  void initState() {
+    read();
+    super.initState();
+  }
+
+  //* UPDATE
+  update(Map oldData, int index) {
+    final controllerTitle = TextEditingController(text: oldData['title']);
+    final controllerDescription = TextEditingController(text: oldData['description']);
+    showDialog(
+      context: context,
+      builder: (context) {
+        return SimpleDialog(
+          title: const Text('Update'),
+          titlePadding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
+          contentPadding: const EdgeInsets.all(16),
+          children: [
+            DInput(controller: controllerTitle, hint: 'Title'),
+            const SizedBox(
+              height: 16,
+            ),
+            DInput(
+              controller: controllerDescription,
+              hint: 'Description',
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  Map newItem = {
+                    'id' : oldData['id'],
+                    'title': controllerTitle.text,
+                    'description': controllerDescription.text,
+                  };
+
+                  //add Data | Eksekusi ke API
+                  listData[index] = newItem;
+                  //Update UI
+                  setState(() {});
+                  //Logging
+                  DMethod.printTitle('Create', listData.toString());
+                  Navigator.pop(context);
+                  DInfo.snackBarSuccess(context, "Success Update Data");
+                },
+                child: const Text('Update Data'))
+          ],
+        );
+      },
+    );
+  }
+
+  //*DELETE
+  delete(int index) {
+    //Logging Before Delete
+    //delete from list
+    listData.removeAt(index);
+    //trigger ui
+    setState(() {});
+    //Logging After Delete
+  }
+
+  deleteById(String id) {
+    //Logging Before Delete
+    //delete from list
+    listData.removeWhere((element) => element['id'] == id);
+    //trigger ui
+    setState(() {});
+    //Logging After Delete
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,18 +162,37 @@ class _HomePageState extends State<HomePage> {
         onPressed: () => create(),
         child: const Icon(Icons.add),
       ),
-      body: listData.isEmpty?
-      const Center(child : Text('Empty!!'))
-      : ListView.builder(
-        itemCount: listData.length,
-        itemBuilder: (context,index){
-            Map item = listData[index];
-            return ListTile(
-              title: Text(item['title']),
-              subtitle: Text(item['description']),
-            );
-      },
-    ),
+      body: listData.isEmpty
+          ? const Center(child: Text('Empty!!'))
+          : ListView.builder(
+              itemCount: listData.length,
+              itemBuilder: (context, index) {
+                Map item = listData[index];
+                return ListTile(
+                  title: Text(item['title']),
+                  subtitle: Text(item['description']),
+                  trailing: PopupMenuButton(
+                      onSelected: (value) {
+                        if (value == 'update') {
+                          update(item , index);
+                        }
+                        if (value == 'delete') {
+                          deleteById(item['id']);
+                        }
+                      },
+                      itemBuilder: (context) => [
+                            const PopupMenuItem(
+                              value: 'update',
+                              child: Text('Update'),
+                            ),
+                            const PopupMenuItem(
+                              value: 'delete',
+                              child: Text('Delete'),
+                            ),
+                          ]),
+                );
+              },
+            ),
     );
   }
 }
