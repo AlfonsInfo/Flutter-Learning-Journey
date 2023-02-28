@@ -12,6 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Map> listData = [];
+  bool ascending = true;
   //* CREATE
   create() {
     final controllerTitle = TextEditingController();
@@ -151,12 +152,40 @@ class _HomePageState extends State<HomePage> {
     //Logging After Delete
   }
 
+  sort(){
+    ascending = !ascending;
+    if(ascending){
+      listData.sort((a, b) => a['title'].compareTo(b['title']) ,);
+    }else{
+      listData.sort((a, b) => b['title'].compareTo(a  ['title']) ,);
+    }
+    setState(() {});
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('CRUD With Collection'),
+      resizeToAvoidBottomInset: false,
+      appBar: PreferredSize(
+        preferredSize: const  Size.fromHeight(80.0),
+        child: AppBar(
+          title: const Text('CRUD With Collection'),
+          actions: [
+            Row(
+              children: [
+                IconButton(onPressed: () => sort(), 
+                iconSize: 20,
+                icon: const Icon(Icons.sort_by_alpha_outlined),
+                tooltip: ascending? 'Ascending':'Descending',),
+                Icon(
+                  ascending? Icons.arrow_downward : Icons.arrow_upward,
+                  size: 20,
+                )
+              ],
+            )
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => create(),
