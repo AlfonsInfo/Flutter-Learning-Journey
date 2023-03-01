@@ -18,10 +18,10 @@ Master : Flutter Dasar
 16. etc
 -----------------------------
 Cabang Lain :
-Anatomy Of Flutter - Course Udemy | Bagan / Template Dasar dari aplikasi Flutter
-Material App - Material App Scaffold, dkk
-Layouting - Layouting
-FromMe2World - Tutor SQFLITE (Belum Bisa)
-flutter_crud_collection - UInya oke + strukturnya bagus untuk aplikasi terhubung ke API / Database
-sqflite - Percobaan ke 2 utk sqflite
-studio olahraga - Gofit rangkaian
+1. Anatomy Of Flutter - Course Udemy | Bagan / Template Dasar dari aplikasi Flutter
+2. Material App - Material App Scaffold, dkk
+3. Layouting - Layouting
+4. FromMe2World - Tutor SQFLITE (Belum Bisa)
+5. flutter_crud_collection - UInya oke + strukturnya bagus untuk aplikasi terhubung ke API / Database
+6. sqflite - Percobaan ke 2 utk sqflite
+7. studio olahraga - Gofit rangkaian
