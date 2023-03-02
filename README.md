@@ -25,3 +25,9 @@ Cabang Lain :
 5. flutter_crud_collection - UInya oke + strukturnya bagus untuk aplikasi terhubung ke API / Database
 6. sqflite - Percobaan ke 2 utk sqflite
 7. studio olahraga - Gofit rangkaian
+
+Todo 
+------------------
+1. Duplikat Youtube Home Screen
+2. Money Records 
+3. Dart Async on Flutter
