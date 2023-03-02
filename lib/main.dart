@@ -1,10 +1,10 @@
-//* Selain menggunakan home, kita juga dapat menggunakan initalRoute untuk navigasi
 //*
 //*
 //*
 //*
-
-
+//*
+//*
+//*
 
 import 'package:flutter/material.dart';
 
@@ -17,22 +17,16 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      debugShowCheckedModeBanner: false, //* Menghilangkan debug banner
-      // debugShowMaterialGrid: true, //* Untuk Menampilkan Grid
-      // home: const HomePage(),
-      // initialRoute: '/',
-      routes:{
-        '/' :(context) => const HomePage()
-      },
-      //* onGenerateRoute gives you asingle place to add custom business logic before pussing new routes (pages)
-      //* Routes is static doesn't offer functionalities like passing an argument to the widget / value
-      // onGenerateRoute: , 
-
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+        // primaryColor: Colors.yellow //*?
+      ),
+      // color: Colors.red,
+      home: HomePage(),
     );
   }
 }
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,7 +39,56 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('InitialRoute dan Route'),),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                // color: Colors.blue
+                color: Colors.redAccent
+              ),
+              child: Text('Drawer Header'),
+              ),
+              ListTile(
+                title: const Text('Item 1'),
+                onTap: () => showBottomList(context),
+              ),
+              ListTile(
+                title: const Text('Item 2'),
+              ),
+          ],
+        ),
+      ),
+      appBar: AppBar(
+        title: const Text('Lovely Scffold'),
+      ),
+      body: Center(
+          child: ElevatedButton(
+              onPressed: () {
+              },
+              child: const Text('Show Modal Bottom Sheet'))),
     );
+  }
+
+  Future<dynamic> showBottomList(BuildContext context) {
+    return showModalBottomSheet(
+                context: context,
+                builder: (_) {
+                  return Container(
+                    height: 200,
+                    // color: Colors.,
+                    child: Center(
+                      child: Column(
+                        children: [
+                          Text('Text1'),
+                          Text('Text1'),
+                          Text('Text1'),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
   }
 }
