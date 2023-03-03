@@ -113,6 +113,9 @@ class _HomePageState extends State<HomePage> {
             groupValue: _fabLoc,
             onChanged: (_) => _onFabLocationChange(_),
           ),
+          ElevatedButton(onPressed: (){
+
+          }, child: const Text('Tampil Snackbar'))
         ],
       ),
       floatingActionButton: _showFab
@@ -134,14 +137,13 @@ class _HomePageState extends State<HomePage> {
 }
 
 class _BottomApp extends StatelessWidget {
-  final FloatingActionButtonLocation fabLocation;
-  final NotchedShape? shape;
-  
   const _BottomApp({
     this.fabLocation = FloatingActionButtonLocation.endDocked,
     this.shape = const CircularNotchedRectangle(),
   });
 
+  final FloatingActionButtonLocation fabLocation;
+  final NotchedShape? shape;
 
   static final List<FloatingActionButtonLocation> centerLocations =
       <FloatingActionButtonLocation>[
@@ -163,7 +165,7 @@ class _BottomApp extends StatelessWidget {
               icon: const Icon(Icons.menu),
               onPressed: () => tampilModal(context),
             ),
-            if (centerLocations.contains(fabLocation)) const Spacer(), //* Bagian yang bikin iconnya pindah
+            if (centerLocations.contains(fabLocation)) const Spacer(),
             IconButton(
                 tooltip: 'Search',
                 icon: const Icon(Icons.search),
@@ -172,7 +174,7 @@ class _BottomApp extends StatelessWidget {
             IconButton(
               tooltip: 'Favorite',
               icon: const Icon(Icons.favorite),
-              onPressed: () => tampilBanner(context)                
+              onPressed: () {},
             ),
           ],
         ),
@@ -181,24 +183,8 @@ class _BottomApp extends StatelessWidget {
   }
 
   void tampilSnack(BuildContext context) {
-    const snackBar = SnackBar(content: const Text('Yay! A SnackBar!'));
+    const snackBar = SnackBar(content:  Text('Yay! A SnackBar!'));
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
-
-  void tampilBanner(BuildContext context) {
-    MaterialBanner banner = MaterialBanner(
-      content: Title(color: Colors.red, child: Text('Data'),),
-      actions: <Widget>[
-          TextButton(
-            onPressed: null,
-            child: Text('OPEN'),
-          ),
-          TextButton(
-            onPressed: null,
-            child: Text('DISMISS'),
-          ),
-        ],);
-        ScaffoldMessenger.of(context).showMaterialBanner(banner);
   }
 
   SnackBar snackSearch() {

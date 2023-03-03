@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
         // primaryColor: Colors.yellow //*?
       ),
       // color: Colors.red,
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
@@ -54,8 +54,8 @@ class _HomePageState extends State<HomePage> {
                 title: const Text('Item 1'),
                 onTap: () => showBottomList(context),
               ),
-              ListTile(
-                title: const Text('Item 2'),
+              const ListTile(
+                title:  Text('Item 2'),
               ),
           ],
         ),
@@ -75,12 +75,12 @@ class _HomePageState extends State<HomePage> {
     return showModalBottomSheet(
                 context: context,
                 builder: (_) {
-                  return Container(
+                  return SizedBox(
                     height: 200,
                     // color: Colors.,
                     child: Center(
                       child: Column(
-                        children: [
+                        children: const [
                           Text('Text1'),
                           Text('Text1'),
                           Text('Text1'),

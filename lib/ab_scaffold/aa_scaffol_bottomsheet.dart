@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
         // primaryColor: Colors.yellow //*?
       ),
       // color: Colors.red,
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }
@@ -48,12 +48,12 @@ class _HomePageState extends State<HomePage> {
                 showModalBottomSheet(
                   context: context,
                   builder: (_) {
-                    return Container(
+                    return SizedBox (
                       height: 200,
                       // color: Colors.,
                       child: Center(
                         child: Column(
-                          children: [
+                          children:const [
                             Text('Text1'),
                             Text('Text1'),
                             Text('Text1'),

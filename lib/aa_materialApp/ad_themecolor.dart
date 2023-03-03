@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
           // primaryColor: Colors.yellow //*?
         ) ,
         // color: Colors.red,
-        home: HomePage(),
+        home: const HomePage(),
     );
   }
 }
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('InitialRoute dan Route'),),
-      body: Center(child: const Text('tes woi'),),
+      body: const Center(child: Text('tes woi'),),
     );
   }
 }
