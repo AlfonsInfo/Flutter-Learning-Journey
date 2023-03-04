@@ -1,9 +1,5 @@
 //* builder property, for inserting widgets above the Navigator
 //* proeperti ini jarang digunakan tetapi dapat digunakan untuk menimpa defaults
-//*
-//*
-//*
-
 
 
 import 'package:flutter/material.dart';

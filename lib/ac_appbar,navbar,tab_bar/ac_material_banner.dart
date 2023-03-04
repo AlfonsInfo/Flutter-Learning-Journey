@@ -181,7 +181,7 @@ class _BottomApp extends StatelessWidget {
   }
 
   void tampilSnack(BuildContext context) {
-    const snackBar = SnackBar(content: const Text('Yay! A SnackBar!'));
+    const snackBar = SnackBar(content:  Text('Yay! A SnackBar!'));
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
