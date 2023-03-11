@@ -1,0 +1,9 @@
+1. Container !oke
+2. BoxDecoration !oke
+3. Decoration --> abstract
+4. AnimatedContainer
+5. Card
+5. GestureDetector
+6. InkWell
+
+7. konstrain box
