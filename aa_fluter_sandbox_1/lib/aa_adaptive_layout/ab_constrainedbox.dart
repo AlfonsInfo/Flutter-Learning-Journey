@@ -3,7 +3,7 @@
 // *
 
 import 'package:flutter/material.dart';
-import 'src/people.dart';
+import '../src/people.dart';
 
 void main() {
   runApp(const MainApp());
@@ -37,7 +37,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: createAppBar('LayoutWidgets'),
-      body:  Placeholder());
+      body:  Container(
+        color: Colors.amber,
+        child: Center(child: const ConstrainedBody()))
+    );
   }
 
   AppBar createAppBar(String TextAppBar) {
@@ -52,6 +55,29 @@ class _MyHomePageState extends State<MyHomePage> {
       width: 100,
       height: 100,
       color: Colors.redAccent,
+    );
+  }
+}
+
+
+class ConstrainedBody extends StatelessWidget {
+  const ConstrainedBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(constraints: 
+
+    const BoxConstraints(
+      minWidth: 100,
+      maxWidth: 1000,
+      // minHeight: 100,
+      maxHeight: 200
+    ),
+    child: Container(
+      // width: 100, //* jika width > min width  , real_width = width, width<min-width = width = minwidth
+      color: Colors.red,
+      // child: Text('ini contentnya yaaaaaaaaaaaaaaaaaa'),
+    ),
     );
   }
 }

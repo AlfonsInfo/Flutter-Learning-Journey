@@ -1,0 +1,16 @@
+align didalam stack
+1 1 1
+1 1 1
+
+align di dalam list view
+1
+    1
+        1
+1   
+    1
+        1
+1
+    1
+        1
+
+/code nya terhapus ya udahlah ya cok

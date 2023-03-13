@@ -3,7 +3,7 @@
 // *
 
 import 'package:flutter/material.dart';
-import 'src/people.dart';
+import '../src/people.dart';
 
 void main() {
   runApp(const MainApp());
@@ -37,7 +37,22 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: createAppBar('LayoutWidgets'),
-      body:  Placeholder());
+      body: Container(
+      color: Colors.blue,
+      //* Main dengan Aspect ratio harus ada ini
+      alignment: Alignment.center,
+      width: 100.0,
+      height: 100.0,
+      child: AspectRatio(
+        aspectRatio: 9/16, //* width / height
+        child: Container(
+          width: 100.0,
+          height: 50.0,
+          color: Colors.green,
+        ),
+      ),
+    )
+    );
   }
 
   AppBar createAppBar(String TextAppBar) {
